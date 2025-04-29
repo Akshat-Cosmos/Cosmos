@@ -174,7 +174,7 @@ export default function Home() {
   }, [sections.length, currentSection]);
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-black text-white">
+    <main className="relative min-h-screen  bg-space-dark stars  w-[100%] transition-all duration-700 overflow-hidden  text-white">
       {/* Background Video */}
       <div className="fixed inset-0 z-0">
         <video
@@ -183,7 +183,7 @@ export default function Home() {
           loop
           muted
           playsInline
-          className="h-full w-full object-cover"
+          className="h-full w-[100%] object-cover"
         >
           <source
             src="https://firebasestorage.googleapis.com/v0/b/quiznation-cosmostaker.appspot.com/o/7289d785-1ae9-4e47-a0a3-632f2d29fdb7.mp4?alt=media"

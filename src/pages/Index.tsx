@@ -32,6 +32,11 @@ const Index = () => {
     ["100%", "0%"]
   );
 
+  const spaceTranslateY = useTransform(
+    scrollYProgress,
+    [0.35, 0.6],
+    ["0%", `-100%`] // Prevents going out of view by adjusting dynamically
+  );
   // . here teh page stopping in mid when scrolling
   // useEffect(() => {
   //   // Header fades out as we scroll
@@ -155,34 +160,36 @@ const Index = () => {
           </button>
         </div>
       </header>
-      {/* <motion.div
-        initial={{ y: "0%" }}
-        animate={{ y: showHome ? "-100%" : "0%" }}
-        transition={{ duration: 1.2, ease: "easeInOut" }}
-      > */}
-      {/* SPACE Logo Section */}
-      <section className="fixed inset-0 z-10 flex flex-col items-center justify-center">
-        <div className="flex flex-col items-center justify-center w-full">
-          <div className="relative" ref={spaceBgRef}>
-            <SpaceLogo
-              size="xl"
-              className="z-20 transition-all duration-700 ease-out"
-              scale={logoScale}
-            />
-          </div>
-          <h2 className="text-center text-xl md:text-2xl text-white mt-8 max-w-3xl opacity-70">
-            The Most Rewarding Marketplace with 100% Revenue Sharing
-          </h2>
-        </div>
-      </section>
+      <AnimatePresence>
+        <motion.div
+          className="  z-[50] fixed inset-0"
+          style={{ y: spaceTranslateY }}
+        >
+          {/* SPACE Logo Section */}
+          <section className="fixed inset-0 z-10 flex flex-col items-center justify-center">
+            <div className="flex flex-col items-center justify-center w-full">
+              <div className="relative" ref={spaceBgRef}>
+                <SpaceLogo
+                  size="xl"
+                  className="z-20 transition-all duration-700 ease-out"
+                  scale={logoScale}
+                />
+              </div>
+              <h2 className="text-center text-xl md:text-2xl text-white mt-8 max-w-3xl opacity-70">
+                The Most Rewarding Marketplace with 100% Revenue Sharing
+              </h2>
+            </div>
+          </section>
 
-      {/* Video Portal */}
-      <section className="fixed inset-0 z-10 flex justify-center items-center pointer-events-none">
-        <VideoPortal
-          scrollPercentage={fastSpaceScroll}
-          videoUrl="https://player.vimeo.com/video/942017973"
-        />
-      </section>
+          {/* Video Portal */}
+          <section className="fixed inset-0 z-10 flex justify-center items-center pointer-events-none">
+            <VideoPortal
+              scrollPercentage={fastSpaceScroll}
+              videoUrl="https://player.vimeo.com/video/942017973"
+            />
+          </section>
+        </motion.div>
+      </AnimatePresence>
 
       {/* Empty Scrolling Space */}
       <section className="h-[10vh]"></section>
