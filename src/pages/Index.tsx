@@ -98,36 +98,9 @@ const Index = () => {
     }
   }, [scrollPercentage, showHome]);
 
-  // new workin useEffect .. I have updated it so it can perform reverse operation as well but its conflicting with the scroll of Home page //
-
-  // useEffect(() => {
-  //   setHeaderOpacity(Math.max(0, 1 - scrollPercentage * 2));
-  //   setFooterOpacity(Math.min(1, Math.max(0, (scrollPercentage - 0.7) * 3)));
-
-  //   const baseScale = 1;
-  //   const maxScale = 8;
-  //   const scrollScale = Math.min(maxScale, baseScale + scrollPercentage * 4);
-  //   setLogoScale(scrollScale);
-
-  //   if (spaceBgRef.current) {
-  //     const scale = 1 + scrollPercentage * 0.5;
-  //     const opacity = Math.max(0.2, 1 - scrollPercentage);
-  //     spaceBgRef.current.style.transform = `scale(${scale})`;
-  //     spaceBgRef.current.style.opacity = opacity.toString();
-  //   }
-
-  //   if (scrollPercentage >= 0.99) {
-  //     if (!showHome) setShowHome(true);
-  //   } else {
-  //     if (showHome) setShowHome(false);
-  //   }
-  // }, [scrollPercentage, showHome]);
-
-  // console.log("scrollPercentage>>>", scrollPercentage);
-
   return (
     <div
-      className={`relative w-full overflow-x-hidden bg-space-dark stars transition-all duration-700 ${"min-h-[2500vh]"}`}
+      className={`relative w-full overflow-x-hidden bg-space-dark stars transition-all duration-500 ${"min-h-[2500vh]"}`}
     >
       {/* Fixed Navigation */}
       <SideNav />
@@ -162,11 +135,11 @@ const Index = () => {
       </header>
       <AnimatePresence>
         <motion.div
-          className="  z-[50] fixed inset-0"
+          className="  z-[50] fixed inset-0 duration-500"
           style={{ y: spaceTranslateY }}
         >
           {/* SPACE Logo Section */}
-          <section className="fixed inset-0 z-10 flex flex-col items-center justify-center">
+          <section className="fixed inset-0 z-10 flex flex-col items-center duration-700 justify-center">
             <div className="flex flex-col items-center justify-center w-full">
               <div className="relative" ref={spaceBgRef}>
                 <SpaceLogo
@@ -282,7 +255,7 @@ const Index = () => {
           // </motion.div>
 
           <motion.div
-            className="fixed inset-0 z-50 bg-black bg-opacity-90 min-h-[100vh]"
+            className="fixed inset-0 z-50 duration-500 bg-black bg-opacity-90 min-h-[100vh]"
             style={{ y: homeTranslateY }}
           >
             <Home />

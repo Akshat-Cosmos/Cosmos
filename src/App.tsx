@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Home from "./pages/back";
+import BackgroundAudio from "./components/BgSound";
 
 const queryClient = new QueryClient();
 
@@ -14,6 +15,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <BackgroundAudio />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />

@@ -174,7 +174,7 @@ export default function Home() {
   }, [sections.length, currentSection]);
 
   return (
-    <main className="relative min-h-screen  bg-space-dark stars  w-[100%] transition-all duration-700 overflow-hidden  text-white">
+    <main className="relative min-h-screen    w-[100%] transition-all duration-500 overflow-hidden  text-white">
       {/* Background Video */}
       <div className="fixed inset-0 z-0">
         <video
